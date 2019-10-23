@@ -44,7 +44,6 @@ func readLines(path string) ([]string, error) {
 func getPath() string {
 	pathPtr := flag.String("path", "", "path to the words file")
 	flag.Parse()
-	fmt.Println("path:", *pathPtr)
 	if len(*pathPtr) <= 0 {
 		log.Fatalf("You need to specify a path to the wordlist")
 	}
@@ -53,6 +52,7 @@ func getPath() string {
 
 func stringifyAnagrams(groups map[string][]string) string {
 	anagrams := ""
+
 	for _, v := range groups {
 		if len(v) > 1 {
 			anagrams += strings.Join(v, " ") + "\n"
