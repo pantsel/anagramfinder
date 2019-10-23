@@ -51,12 +51,15 @@ func getPath() string {
 	return *pathPtr
 }
 
-func printAnagrams(groups map[string][]string) {
+func stringifyAnagrams(groups map[string][]string) string {
+	anagrams := ""
 	for _, v := range groups {
 		if len(v) > 1 {
-			fmt.Println(strings.Join(v, " "))
+			anagrams += strings.Join(v, " ") + "\n"
 		}
 	}
+
+	return anagrams
 }
 
 func mapWords(words []string) map[string][]string {
@@ -81,7 +84,9 @@ func main() {
 	}
 
 	groups := mapWords(words)
-	printAnagrams(groups)
+	anagrams := stringifyAnagrams(groups)
+
+	fmt.Printf(anagrams)
 
 	elapsed := time.Since(start)
 	log.Printf("-----------------------------------------\n")
