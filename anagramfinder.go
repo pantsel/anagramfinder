@@ -52,8 +52,7 @@ func getPath() string {
 }
 
 func printAnagrams(groups map[string][]string) {
-	for k, v := range groups {
-		_ = k
+	for _, v := range groups {
 		if len(v) > 1 {
 			fmt.Println(strings.Join(v, " "))
 		}
@@ -64,8 +63,7 @@ func mapWords(words []string) map[string][]string {
 
 	groups := map[string][]string{}
 
-	for i, s := range words {
-		_ = i
+	for _, s := range words {
 		alphabetized := alphabetize(s)
 		groups[alphabetized] = append(groups[alphabetized], s)
 	}
